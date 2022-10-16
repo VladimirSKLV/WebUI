@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class WebTest {
     private WebDriver driver;
 
+
     @BeforeAll
     static void setUpClass() {
         WebDriverManager.chromedriver().setup();
@@ -18,7 +19,7 @@ public class WebTest {
     @BeforeEach
     void setUpTest() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
+        //options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
