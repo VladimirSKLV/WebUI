@@ -14,19 +14,19 @@ public class WebTest {
 
     @BeforeAll
     static void setUpClass() {
-        WebDriverManager.chromedriver().setup();
+        //WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "Chromedriver/chromedriver.exe");
     }
 
     @BeforeEach
     void setUpTest() {
-        ChromeOptions options = new ChromeOptions();
+        /*ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         options.addArguments("--remote-debugging-port=9999");
-        driver = new ChromeDriver(options);
-        //driver = new ChromeDriver();
+        driver = new ChromeDriver(options);*/
+        driver = new ChromeDriver();
         driver.get("http://localhost:9999");
     }
 
