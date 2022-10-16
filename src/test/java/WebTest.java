@@ -1,7 +1,10 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -11,20 +14,19 @@ public class WebTest {
 
     @BeforeAll
     static void setUpClass() {
-        //WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "Chromedriver/chromedriver.exe");
     }
 
     @BeforeEach
     void setUpTest() {
-        /*ChromeOptions options = new ChromeOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         options.addArguments("--remote-debugging-port=9999");
         driver = new ChromeDriver(options);
-        driver.get("http://localhost:9999");*/
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
         driver.get("http://localhost:9999");
     }
 
