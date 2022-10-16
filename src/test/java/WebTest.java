@@ -2,10 +2,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.List;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -77,8 +77,8 @@ public class WebTest {
         driver.findElement(By.cssSelector("[data-test-id=\"agreement\"]")).click();
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("[type=\"button\"]")).click();
-        String wrongTel = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText();
-        assertEquals("Поле обязательно для заполнения", wrongTel.trim());
+        String wrongName = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText();
+        assertEquals("Поле обязательно для заполнения", wrongName.trim());
         Thread.sleep(2000);
     }
 
