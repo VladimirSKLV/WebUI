@@ -24,7 +24,6 @@ public class WebTest {
         options.addArguments("--headless");
         options.addArguments("--remote-debugging-port=9999");
         driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
         driver.get("http://localhost:9999");
     }
 
