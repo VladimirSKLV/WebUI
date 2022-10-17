@@ -1,3 +1,5 @@
+package ru.netology.UI;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -23,7 +25,6 @@ public class WebTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        options.addArguments("--remote-debugging-port=9999");
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
     }
@@ -50,7 +51,7 @@ public class WebTest {
         driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79999999990");
         driver.findElement(By.cssSelector("[data-test-id=\"agreement\"]")).click();
         driver.findElement(By.cssSelector("[type=\"button\"]")).click();
-        String wrong = driver.findElement(By.className("input__sub")).getText();
+        String wrong = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
         assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", wrong.trim());
     }
 
@@ -87,6 +88,6 @@ public class WebTest {
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Мак-Кинли Смит");
         driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+79999999990");
         driver.findElement(By.cssSelector("[type=\"button\"]")).click();
-        assertTrue(driver.findElement(By.cssSelector("[data-test-id=\"agreement\"]")).isDisplayed());
+        assertTrue(driver.findElement(By.cssSelector("[data-test-id=\"agreement\"].input_invalid")).isDisplayed());
     }
 }
